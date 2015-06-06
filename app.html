@@ -10,7 +10,11 @@
       <div class="sub header">All the fish that has been measured</div>
     </div>
   </h2>
+  {{#if fishid }}
+  {{> fishdetail}}
+  {{else}}
   {{> fishlist}}
+  {{/if}}
 </body>
 
 <template name="fishlist">
@@ -36,4 +40,10 @@
     </div>
   </div>
 </div>
+</template>
+
+<template name="fishdetail">
+{{#with fish}}
+{{> fishcard}}
+{{/with}}
 </template>
