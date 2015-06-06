@@ -14,25 +14,25 @@
 </body>
 
 <template name="fishlist">
+<div class="ui cards">
   {{#each fish}}
   {{> fishcard}}
   {{/each}}
+</div>
 </template>
 
 <template name="fishcard">
-<div class="ui card">
+<div class="card">
+  <a class="image">
+    <img src="{{image}}">
+  </a>
   <div class="content">
-    <div class="header">
-      <img src="{{image}}" class="ui avatar image">
-      {{name}}
+    <a class="header">{{name}}</a>
+    <div class="meta">
+      <a>{{species}}</a>
     </div>
     <div class="description">
       {{description}}
-    </div>
-  </div>
-  <div class="ui bottom attached buttons">
-    <div class="ui button">
-      Details
     </div>
   </div>
 </div>
