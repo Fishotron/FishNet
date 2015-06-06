@@ -1,0 +1,39 @@
+<head>
+  <title>fishnet</title>
+</head>
+
+<body>
+  <h2 class="ui header">
+    <img src="https://pbs.twimg.com/profile_images/603222926712774657/uP1V3pvP.png">
+    <div class="content">
+      Fishatron
+      <div class="sub header">All the fish that has been measured</div>
+    </div>
+  </h2>
+  {{> fishlist}}
+</body>
+
+<template name="fishlist">
+  {{#each fish}}
+  {{> fishcard}}
+  {{/each}}
+</template>
+
+<template name="fishcard">
+<div class="ui card">
+  <div class="content">
+    <div class="header">
+      <img src="{{image}}" class="ui avatar image">
+      {{name}}
+    </div>
+    <div class="description">
+      {{description}}
+    </div>
+  </div>
+  <div class="ui bottom attached buttons">
+    <div class="ui button">
+      Details
+    </div>
+  </div>
+</div>
+</template>
