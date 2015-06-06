@@ -3,6 +3,9 @@
 </head>
 
 <body>
+  {{#if fishid }}
+  {{> fishdetail}}
+  {{else}}
   <h2 class="ui header">
     <img src="https://pbs.twimg.com/profile_images/603222926712774657/uP1V3pvP.png">
     <div class="content">
@@ -10,9 +13,6 @@
       <div class="sub header">All the fish that has been measured</div>
     </div>
   </h2>
-  {{#if fishid }}
-  {{> fishdetail}}
-  {{else}}
   {{> fishlist}}
   {{/if}}
 </body>
@@ -44,6 +44,27 @@
 
 <template name="fishdetail">
 {{#with fish}}
-{{> fishcard}}
+<div class="ui items">
+  <div class="item">
+    <div class="image">
+      <img src="{{image}}">
+    </div>
+    <div class="content">
+      <a class="header">{{name}}</a>
+      <div class="meta">
+        {{species}}
+      </div>
+      <div class="description">
+        {{description}}
+      </div>
+      <div class="extra">
+        <i class="resize horizontal icon"></i> {{width}}
+        <i class="resize vertical icon"></i> {{height}}
+        <i class="marker icon"></i> {{location.lat}}, {{location.lng}}
+        <i class="wait icon"></i> {{date}}
+      </div>
+    </div>
+  </div>
+</div>
 {{/with}}
 </template>
