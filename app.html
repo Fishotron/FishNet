@@ -71,5 +71,12 @@
     </div>
   </div>
 </div>
+{{#if location}}
+{{> map}}
+{{/if}}
 {{/with}}
+</template>
+
+<template name="map">
+<div id="map" class="map"></div>
 </template>

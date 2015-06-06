@@ -21,3 +21,11 @@ if Meteor.isClient
   Template.fishdetail.events
     "click .back.button": ->
       Session.set "fishid", undefined
+
+  Template.map.rendered = ->
+    L.Icon.Default.imagePath = 'packages/bevanhunt_leaflet/images'
+
+    map = L.map 'map', doubleClickZoom: false
+    L.tileLayer.provider('OpenStreetMap.Mapnik').addTo(map)
+    map.setView this.data.location, 13
+    L.marker(this.data.location).addTo(map)
