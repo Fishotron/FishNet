@@ -16,5 +16,8 @@ if Meteor.isClient
 
   Template.fishcard.events
     "click .card": ->
-      console.log "Card clicked", this._id
-      Session.set("fishid", this._id)
+      Session.set "fishid", this._id
+
+  Template.fishdetail.events
+    "click .back.button": ->
+      Session.set "fishid", undefined
