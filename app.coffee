@@ -16,6 +16,8 @@ if Meteor.isClient
 
   Template.fishcard.events
     "click .card": ->
+      $(document).scrollTop(0)
+      # console.log("here")
       Session.set "fishid", this._id
 
   Template.fishdetail.events
