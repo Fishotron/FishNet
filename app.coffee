@@ -1,5 +1,3 @@
-Fish = new Mongo.Collection("fish")
-
 if Meteor.isClient
 
   Template.body.helpers
@@ -10,19 +8,14 @@ if Meteor.isClient
     fish: ->
       Fish.find({})
 
-  Template.fishdetail.helpers
-    fish: ->
-      Fish.findOne(Session.get("fishid"))
-
   Template.fishcard.events
-    "click .card": ->
-      $(document).scrollTop(0)
-      # console.log("here")
-      Session.set "fishid", this._id
+    "click .card": (event) ->
+      console.log(event.currentTarget)
+      Router.go("/" + event.currentTarget.id)
 
   Template.fishdetail.events
     "click .back.button": ->
-      Session.set "fishid", undefined
+      Router.go("/")
 
   Template.map.rendered = ->
     L.Icon.Default.imagePath = 'packages/bevanhunt_leaflet/images'

@@ -1,12 +1,4 @@
-<head>
-  <title>Fish-o-Tron</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-</head>
-
-<body>
-  {{#if fishid }}
-  {{> fishdetail}}
-  {{else}}
+<template name="fishlist">
   <h2 class="ui header">
     <img src="https://pbs.twimg.com/profile_images/603222926712774657/uP1V3pvP.png">
     <div class="content">
@@ -14,33 +6,28 @@
       <div class="sub header">All the fish that has been measured</div>
     </div>
   </h2>
-  {{> fishlist}}
-  {{/if}}
-</body>
-
-<template name="fishlist">
-<div class="ui cards">
-  {{#each fish}}
-  {{> fishcard}}
-  {{/each}}
-</div>
+  <div class="ui cards">
+    {{#each fish}}
+    {{> fishcard}}
+    {{/each}}
+  </div>
 </template>
 
 <template name="fishcard">
-<div class="card">
-  <a class="image">
-    <img src="{{image}}">
-  </a>
-  <div class="content">
-    <a class="header">{{name}}</a>
-    <div class="meta">
-      <a>{{species}}</a>
-    </div>
-    <div class="description">
-      {{description}}
+  <div class="card" id="{{_id._str}}">
+    <div class="image">
+      <img src="{{image}}">
+      <div class="content">
+        <a class="header">{{name}}</a>
+        <div class="meta">
+          <a>{{species}}</a>
+        </div>
+        <div class="description">
+          {{description}}
+        </div>
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <template name="fishdetail">
@@ -87,5 +74,5 @@
 </template>
 
 <template name="map">
-<div id="map" class="map"></div>
+  <div id="map" class="map"></div>
 </template>

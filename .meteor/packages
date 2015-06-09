@@ -11,3 +11,4 @@ coffeescript
 semantic:ui
 flemay:less-autoprefixer
 bevanhunt:leaflet
+iron:router
